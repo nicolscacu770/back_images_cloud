@@ -4,7 +4,7 @@ const usuarioModel = require('../models/modelUsuarios');
 module.exports = {
     findAll : async(req,res) => {
         try {
-            const imagens = await imagenModel.find({});
+            const imagens = await imagenModel.find([]);
 
             return res.status(200).json({state: true, msg: "Recuperar Todos los registros", "data": imagens});
         } catch (error) {

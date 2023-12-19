@@ -13,7 +13,7 @@ app.set(express.json());
 
 //middlewares
 router(app);
-app.use("/", (req, res) => res.send("welcome to API wallet"));
+app.use("/", (req, res) => res.send("welcome to API images cloud"));
 
 
 app.listen(app.get('PORT'), () => console.log( `server Listen to port ${app.get('PORT')}` ) )
