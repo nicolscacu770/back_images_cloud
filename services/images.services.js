@@ -6,7 +6,7 @@ module.exports = {
         try {
             const imagens = await imagenModel.find();
 
-            return res.status(200).json({state: true, msg: "Recuperar Todos las imagenes", "data []": imagens});
+            return res.status(200).json({state: true, msg: "Recuperar Todos las imagenes", data: imagens});
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({"state": false, "error": error});
