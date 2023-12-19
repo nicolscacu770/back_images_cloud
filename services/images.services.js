@@ -34,7 +34,8 @@ module.exports = {
         const usuario  = await usuarioModel.findById(idUser);
 
         const imagen = req.file;
-        console.log(imagen);
+        console.log(req.body);
+        console.log("imagen: ", imagen);
 
         console.log(usuario);
         if( usuario ){
@@ -67,9 +68,11 @@ module.exports = {
     deletear : async(req,res) => {
         try{
             const {id} = req.params;
-            await imagenModel.deleteOne( {id: id} );
-            return res.json({ message: 'Imagen eliminado' });
+            console.log(id);
+            await imagenModel.deleteOne( {_id: id} );
+            return res.json({ state: true, message: 'Imagen eliminado' });
         }catch(error){
+            console.log(error);
             return res.status(500).json({"state": false, "error": "no available :v", message: "imagen NO eliminada"});
         }
     }
