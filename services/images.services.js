@@ -4,10 +4,11 @@ const usuarioModel = require('../models/modelUsuarios');
 module.exports = {
     findAll : async(req,res) => {
         try {
-            const imagens = await imagenModel.find([]);
+            const imagens = await imagenModel.find();
 
-            return res.status(200).json({state: true, msg: "Recuperar Todos los registros", "data": imagens});
+            return res.status(200).json({state: true, msg: "Recuperar Todos las imagenes", "data []": imagens});
         } catch (error) {
+            console.log(error.message);
             return res.status(500).json({"state": false, "error": error});
         }
     },
@@ -15,13 +16,14 @@ module.exports = {
     findById : async(req,res) => {
         const {id} = req.params;
         try {
-            const movement = await imagenModel.findById(id);
-            if(movement){
-                return res.status(200).json({"state": true, "data": movement});    
+            const imagen = await imagenModel.findById(id);
+            if(imagen){
+                return res.status(200).json({"state": true, "data": imagen});    
             }else{
-                return res.status(404).json({"state": false, "msg": "elemento no encontrado"});
+                return res.status(404).json({"state": false, "msg": "imagen no encontrado"});
             }
         } catch (error) {
+            console.log(error.message);
             return res.status(500).json({"state": false, "error": error});
         }
         

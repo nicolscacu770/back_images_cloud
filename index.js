@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 
 //setters
-app.set('PORT', process.env.PORT || 3000);
+app.set('PORT', process.env.PORT || 3001);
 app.set(express.json());
 
 //middlewares
